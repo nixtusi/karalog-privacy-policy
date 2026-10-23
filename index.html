@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="カラログのプライバシーポリシー。KaraLog Privacy Policy." />
   <title>KaraLog – Privacy Policy / プライバシーポリシー</title>
   <style>
     :root {
+      color-scheme: dark;
       --bg: #0f0f12;
       --surface: #1a1a20;
       --border: #2a2a35;
       --primary: #f9f9f9;
-      --secondary: #a0a0b0;
-      --muted: #606070;
-      --accent: #ff3a6e;
+      --secondary: #b0b0bf;
+      --muted: #9494a3;
+      --accent: #ff5c88;
       --accent-dim: rgba(255,58,110,0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,9 +22,11 @@
       background: var(--bg);
       color: var(--primary);
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-      font-size: 15px;
-      line-height: 1.75;
-      padding: 0 0 80px;
+      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+      padding-bottom: 64px;
     }
     header {
       background: var(--surface);
@@ -30,272 +34,222 @@
       padding: 28px 24px 24px;
       text-align: center;
     }
-    .app-icon {
-      width: 72px; height: 72px;
-      background: var(--accent-dim);
-      border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 14px;
-      font-size: 34px;
-    }
-    header h1 {
-      font-size: 22px; font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-    header p {
-      color: var(--secondary);
-      font-size: 13px;
-      margin-top: 4px;
-    }
-    .lang-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 18px;
-    }
+    header h1 { font-size: 24px; font-weight: 800; }
+    header p { color: var(--secondary); font-size: 14px; margin-top: 4px; }
+    .lang-toggle { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
     .lang-btn {
-      padding: 7px 22px;
-      border-radius: 20px;
+      min-height: 44px;
+      padding: 8px 22px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: transparent;
       color: var(--secondary);
-      font-size: 13px; font-weight: 600;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.18s;
     }
-    .lang-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #000;
-    }
-    .content { display: none; max-width: 720px; margin: 0 auto; padding: 40px 24px 0; }
-    .content.active { display: block; }
-    .updated {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
+    .lang-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #000; }
+    .content { max-width: 720px; margin: 0 auto; padding: 32px 24px 0; }
+    .content[hidden] { display: none; }
+    .updated { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
     h2 {
-      font-size: 17px; font-weight: 700;
+      font-size: 18px;
+      font-weight: 700;
       color: var(--accent);
-      margin: 36px 0 10px;
+      margin: 32px 0 12px;
       padding-left: 12px;
       border-left: 3px solid var(--accent);
     }
-    p { color: var(--secondary); margin-bottom: 10px; }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 10px;
-    }
-    ul li {
-      color: var(--secondary);
-      padding: 5px 0 5px 18px;
-      position: relative;
-    }
-    ul li::before {
-      content: "–";
-      position: absolute; left: 0;
-      color: var(--accent);
-    }
+    h3 { font-size: 16px; margin: 18px 0 8px; }
+    p { color: var(--secondary); margin-bottom: 12px; }
+    ul { padding-left: 22px; margin: 8px 0 14px; color: var(--secondary); }
+    li { margin: 6px 0; }
+    li::marker { color: var(--accent); }
     .highlight-box {
       background: var(--accent-dim);
-      border: 1px solid rgba(255,58,110,0.2);
-      border-radius: 10px;
+      border-left: 3px solid var(--accent);
       padding: 14px 16px;
-      margin: 12px 0;
+      margin: 14px 0;
     }
     .highlight-box p { margin-bottom: 0; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
     footer {
       text-align: center;
       color: var(--muted);
-      font-size: 12px;
-      margin-top: 60px;
+      font-size: 13px;
+      margin-top: 48px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
     }
+    @media (max-width: 360px) {
+      .content { padding-right: 18px; padding-left: 18px; }
+    }
   </style>
+  <noscript><style>.content[hidden] { display: block; }</style></noscript>
 </head>
 <body>
-
 <header>
-  <div class="app-icon">🎤</div>
   <h1>KaraLog</h1>
-  <p>Privacy Policy / プライバシーポリシー</p>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="switchLang('ja')">日本語</button>
-    <button class="lang-btn" onclick="switchLang('en')">English</button>
+  <p id="policy-title">Privacy Policy / プライバシーポリシー</p>
+  <div class="lang-toggle" role="group" aria-label="言語 / Language">
+    <button type="button" class="lang-btn" data-language="ja" aria-controls="ja" aria-pressed="true" lang="ja">日本語</button>
+    <button type="button" class="lang-btn" data-language="en" aria-controls="en" aria-pressed="false" lang="en">English</button>
   </div>
 </header>
 
-<!-- ===== 日本語 ===== -->
-<div id="ja" class="content active">
-  <p class="updated">最終更新日：2026年5月26日</p>
+<main>
+<section id="ja" class="content" lang="ja" aria-labelledby="policy-title">
+  <p class="updated">最終更新日：<time datetime="2026-10-23">2026年10月23日</time></p>
 
   <h2>1. はじめに</h2>
-  <p>
-    カラログ（以下「本アプリ」）は、Yuta Nishimatsu（以下「開発者」）が提供するカラオケ採点記録アプリです。
-    本プライバシーポリシーは、本アプリにおける情報の収集・利用・保護方針について説明します。
-  </p>
+  <p>カラログ（以下「本アプリ」）は、Yuta Nishimatsu（以下「開発者」）が提供するカラオケ採点記録アプリです。本ポリシーは、本アプリとこのページにおける情報の取り扱いを説明します。</p>
   <div class="highlight-box">
-    <p><strong>要点：</strong>本アプリはユーザーのデータを開発者のサーバーに送信しません。すべての情報はデバイス上またはユーザー自身のiCloudに保存されます。</p>
+    <p><strong>要点：</strong>採点記録や添付ファイルは主に端末内に保存され、開発者が運営するサーバーへ自動送信する仕組みはありません。一方、楽曲検索・再生・楽曲認識などではAppleのサービスと通信します。利用者によるバックアップ共有やお問い合わせの送信は、別途以下のとおり取り扱われます。</p>
   </div>
 
-  <h2>2. 収集する情報</h2>
-  <p>本アプリはユーザーのデバイス上に以下の情報を保存します：</p>
+  <h2>2. 端末内で扱う情報と利用目的</h2>
   <ul>
-    <li>採点記録（点数・曲名・アーティスト名・カラオケ機種・キー・日付・メモ）</li>
-    <li>添付メディアファイル（写真・動画・録音データ）</li>
-    <li>フォルダ名・フォルダへの曲の分類</li>
-    <li>アプリ内の設定情報（デフォルト機種・表示設定など）</li>
+    <li>曲名、アーティスト名、点数、カラオケ機器、キー、歌った日、メモなど：記録の表示・編集・検索・集計・グラフ表示に利用します。</li>
+    <li>写真、動画、保存した録音、楽曲画像：記録への添付やサムネイル表示に利用します。</li>
+    <li>お気に入り、フォルダ、楽曲識別子、画像URLなど：曲の分類、外部楽曲情報との対応付け、画像表示に利用します。</li>
+    <li>表示・並び順、最後に使用した機器、任意の歌った日保持設定、初回利用日、使い方案内やレビュー依頼の表示状況など：設定保持と案内表示に利用します。</li>
   </ul>
-  <p>本アプリは氏名・メールアドレス・位置情報・連絡先などの個人情報を収集しません。</p>
+  <p>本アプリ独自のアカウント登録はありません。氏名・メールアドレス・連絡先・GPS位置情報を自動取得する機能はありませんが、メモや添付ファイル、お問い合わせに利用者が含めた個人情報は、その内容の一部となります。</p>
 
-  <h2>3. 情報の利用目的</h2>
-  <p>収集した情報は以下の目的のみに使用されます：</p>
+  <h2>3. Apple MusicとShazamKit</h2>
+  <h3>Apple Music・ミュージックライブラリ</h3>
+  <p>MusicKitやメディアライブラリ機能で、楽曲検索、人気曲ランキング、プレイリストの表示、アプリ内再生、楽曲・アーティスト画像の取得を行います。検索語、曲・アーティストの識別情報、再生に必要なリクエストなどがAppleのサービスで処理され、画像配信先とも通信します。保存済みの曲の画像を表示する際にも、その曲やアーティストに関する照会が発生する場合があります。</p>
+  <p>人気曲ランキングには端末の地域設定の国・地域コードを使用します。GPSで現在地を取得するものではありません。Apple側では、通信先へのIPアドレスやサービス利用情報などを同社のポリシーに従って扱います。詳しくは<a href="https://www.apple.com/legal/privacy/data/en/apple-music/" target="_blank" rel="noopener noreferrer">Apple Musicとプライバシー</a>および<a href="https://www.apple.com/jp/legal/privacy/" target="_blank" rel="noopener noreferrer">Appleのプライバシーポリシー</a>をご確認ください。</p>
+  <h3>楽曲認識（ShazamKit）</h3>
+  <p>利用者が楽曲認識を開始し、マイクへのアクセスを許可すると、周囲の音から生成した音響的な特徴量（音響署名）をAppleのShazamサービスに送信して楽曲を照合します。Appleは、ShazamKitでは元の音声はAppleと共有されず、音響署名から元の音声を復元できないと説明しています（<a href="https://developer.apple.com/shazamkit/" target="_blank" rel="noopener noreferrer">ShazamKitの説明</a>）。</p>
+  <p>認識のための音声を本アプリが採点記録の録音添付として保存したり、開発者のサーバーへ送信したりすることはありません。認識結果の曲名・アーティスト名・画像などを入力に利用します。別の録音機能で利用者が保存した音声は、端末内の添付ファイルとして扱います。</p>
+
+  <h2>4. アクセス権限</h2>
   <ul>
-    <li>採点記録の表示・管理・検索</li>
-    <li>点数推移グラフの生成</li>
-    <li>ユーザーが操作するバックアップデータの作成</li>
+    <li><strong>マイク：</strong>利用者が開始する楽曲認識、または歌唱の録音添付に使用します。</li>
+    <li><strong>写真・動画：</strong>システムの写真ピッカーで利用者が選択した項目を読み込み、記録に添付します。</li>
+    <li><strong>Apple Music・メディアライブラリ：</strong>楽曲検索・ランキング・画像取得や、端末のプレイリストの表示・再生に使用します。</li>
   </ul>
+  <p>必要な権限を許可しない場合、該当する機能が利用できないことがあります。許可済みのアクセスは端末の設定で変更できます。写真ピッカーは、選択した項目へのアクセスを提供する仕組みです。</p>
 
-  <h2>4. 情報の第三者提供</h2>
-  <p>開発者は、ユーザーの情報を第三者に販売・共有・貸与しません。</p>
+  <h2>5. 保存場所・iCloud・バックアップ</h2>
+  <p>記録や添付ファイルは、端末内の本アプリ用の保存領域に保存します。画像などは表示のために一時保存される場合があります。現在の実装には、本アプリ独自のiCloud／CloudKitによる記録の自動同期はありません。設定にある「iCloudに保存」の項目だけで、デバイス間の同期が行われるものではありません。</p>
+  <p>これとは別に、OSのバックアップ設定によってはアプリのデータがiCloudバックアップ等に含まれる場合があります。その取り扱いはAppleと利用者の端末設定に依存します。</p>
+  <p>利用者がバックアップを書き出した場合、曲・採点・フォルダなどの情報を含むJSONファイルが作成され、共有先・保存先は利用者が選びます。添付した写真・動画・録音などのメディア本体は、このJSONに含まれません。共有先では、そのサービスや相手側の情報の取り扱いが適用されます。</p>
 
-  <h2>5. データの保存場所</h2>
-  <p>
-    すべてのデータはユーザーのデバイス上にローカルに保存されます。
-    iCloud同期機能を有効にした場合、データはユーザー自身のiCloudアカウントに保存されます。
-    開発者のサーバーにデータが送信されることはありません。
-  </p>
+  <h2>6. ウィジェット</h2>
+  <p>ホーム画面・ロック画面のウィジェット表示のため、曲名、アーティスト名、点数、歌った日、歌唱回数や集計値、縮小画像などの一部を、本アプリとウィジェットが共有する端末内の保存領域に書き出します。これは開発者のサーバーへの送信ではありません。</p>
+  <p>配置した画面やOSのプライバシー設定によっては、端末を利用・閲覧できる人にこれらの情報が見える場合があります。ウィジェットの表示更新や、記録を変更・削除した後の反映時期はOSにも依存します。</p>
 
-  <h2>6. アクセス権限</h2>
-  <p>本アプリは以下の権限を使用することがあります：</p>
-  <ul>
-    <li><strong>マイク：</strong>歌唱の録音データを採点記録に添付するため</li>
-    <li><strong>写真ライブラリ：</strong>採点時の画像・動画を記録に添付するため</li>
-    <li><strong>Apple Music（MusicKit）：</strong>楽曲情報の検索およびアートワーク取得のため</li>
-  </ul>
-  <p>いずれの権限も、機能を使用するときにのみ利用します。デバイスの設定からいつでも権限を取り消すことができます。</p>
+  <h2>7. 外部送信・広告・解析</h2>
+  <p>開発者は、採点記録や添付ファイルを自動収集する独自のサーバー、広告配信SDK、第三者の行動追跡・アクセス解析SDKを本アプリに組み込んでいません。利用者の情報を広告目的で販売・貸与する仕組みもありません。</p>
+  <p>ただし、上記のAppleサービスとの通信、利用者が選択するバックアップの共有、お問い合わせフォームの送信はあります。本ポリシーは、Apple・Google・GitHubなどのサービス側による情報の取り扱いまで「情報を取得しない」とするものではありません。</p>
 
-  <h2>7. サードパーティサービス</h2>
-  <p>
-    本アプリはApple Inc. が提供するMusicKit（Apple Music）を使用しています。
-    Apple MusicおよびiCloudの利用には、<a href="https://www.apple.com/jp/legal/privacy/" target="_blank">Appleのプライバシーポリシー</a>が適用されます。
-  </p>
+  <h2>8. アプリ内購入</h2>
+  <p>カラログ ProはApp Store経由の買い切り購入です。購入・復元時にはStoreKitを使って商品情報と購入権利を確認します。決済はAppleが処理し、開発者はクレジットカード番号などの決済情報を受け取りません。Appleが扱う購入情報には同社の規約・プライバシーポリシーが適用されます。</p>
 
-  <h2>8. アプリ内課金</h2>
-  <p>
-    カラログProプランはApp Store経由で購入できます。課金処理はAppleが行い、開発者はクレジットカード情報などの決済情報を受け取りません。
-  </p>
+  <h2>9. 保存期間と削除</h2>
+  <p>記録や添付ファイルは、利用者が記録の編集・削除などを行うまで端末内に保持されます。ウィジェット用データはアプリの記録の変更に応じて更新しますが、OSに保存された表示が直ちに更新されない場合があります。</p>
+  <p>アプリを端末から削除すると、通常、その端末内のアプリデータも削除されます。ただし、OSのバックアップ、書き出したJSON、共有先に保存したコピーなどは自動削除されません。これらはそれぞれの保存先で管理してください。開発者は、端末内の記録を遠隔で閲覧・復旧・削除する仕組みを持ちません。</p>
 
-  <h2>9. データの削除</h2>
-  <p>
-    アプリをアンインストールすることで、デバイス上のすべてのデータが削除されます。
-    iCloudに同期している場合は、デバイスのiCloud設定からも削除できます。
-  </p>
+  <h2>10. このWebページとお問い合わせ</h2>
+  <p>このページはGitHub Pagesで公開しています。閲覧時にGitHub側でIPアドレスなどのアクセス情報が処理される場合があります（<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHubのプライバシーステートメント</a>）。このページに独自の広告・アクセス解析ツールは設置していません。</p>
+  <p>お問い合わせにはGoogleフォームを使用します。フォームで送信した内容や、フォームの設定に応じた連絡先情報を開発者が受け取り、お問い合わせへの対応に利用します。Googleによる処理には<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Googleのプライバシーポリシー</a>も適用されます。パスワード、決済情報、不要な個人情報は送信しないでください。</p>
 
-  <h2>10. プライバシーポリシーの変更</h2>
-  <p>
-    プライバシーポリシーを変更する場合、本ページを更新します。
-    重要な変更がある場合はApp Storeのアプリアップデートを通じてお知らせすることがあります。
-  </p>
+  <h2>11. ポリシーの変更</h2>
+  <p>本ポリシーを変更する場合は、このページの内容と最終更新日を更新します。情報の取り扱いに重要な変更がある場合は、本アプリやApp Storeの更新情報などでもお知らせし、法令上必要な場合は同意を確認します。</p>
 
-  <h2>11. お問い合わせ</h2>
-  <p>プライバシーポリシーに関するご質問は、App Storeのレビューページよりご連絡ください。</p>
-
+  <h2>12. お問い合わせ窓口</h2>
+  <p>本ポリシーや、開発者が受け取ったお問い合わせ情報の確認・削除については、Yuta Nishimatsu宛に<a href="https://docs.google.com/forms/d/e/1FAIpQLSfOJhdf4_zJH2OATGepn1_tuxIS3W6LNo6gTasQ96ljbJTIbQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">お問い合わせフォーム</a>からご連絡ください。</p>
   <footer>© 2026 Yuta Nishimatsu. All rights reserved.</footer>
-</div>
+</section>
 
-<!-- ===== English ===== -->
-<div id="en" class="content">
-  <p class="updated">Last updated: May 26, 2026</p>
+<section id="en" class="content" lang="en" aria-labelledby="policy-title" hidden>
+  <p class="updated">Last updated: <time datetime="2026-10-23">October 23, 2026</time></p>
 
   <h2>1. Introduction</h2>
-  <p>
-    KaraLog (the "App") is a karaoke score-tracking application developed by Yuta Nishimatsu (the "Developer").
-    This Privacy Policy describes how information is collected, used, and protected within the App.
-  </p>
+  <p>KaraLog (the “App”) is a karaoke score-tracking app provided by Yuta Nishimatsu (the “Developer”). This policy explains information handling in the App and on this page.</p>
   <div class="highlight-box">
-    <p><strong>Summary:</strong> The App does not transmit your data to the Developer's servers. All information is stored on your device or in your own iCloud account.</p>
+    <p><strong>Summary:</strong> Score records and attachments are primarily stored on your device. The App has no mechanism that automatically uploads them to a server operated by the Developer. Song search, playback and recognition do communicate with Apple services. Backup sharing and support submissions initiated by you are handled separately as described below.</p>
   </div>
 
-  <h2>2. Information We Collect</h2>
-  <p>The App stores the following information locally on your device:</p>
+  <h2>2. On-Device Information and Its Purposes</h2>
   <ul>
-    <li>Score records (score, song title, artist name, karaoke machine, key, date, and memo)</li>
-    <li>Attached media files (photos, videos, and audio recordings)</li>
-    <li>Folder names and song-folder assignments</li>
-    <li>App settings (default machine, display preferences, etc.)</li>
+    <li>Song titles, artists, scores, karaoke machines, keys, performance dates and notes: displaying, editing, searching, summarizing and charting records.</li>
+    <li>Photos, videos, saved audio recordings and artwork: attaching media and displaying thumbnails.</li>
+    <li>Favorites, folders, song identifiers and artwork URLs: organizing songs, matching external music information and displaying images.</li>
+    <li>Display and sort preferences, last-used machine, optional performance-date retention, first-use date, and guide/review-prompt status: retaining preferences and presenting guidance.</li>
   </ul>
-  <p>The App does not collect personal information such as your name, email address, location, or contacts.</p>
+  <p>The App does not require its own account registration and has no feature that automatically obtains your name, email address, contacts or GPS location. Personal information you include in notes, attachments or support submissions may nevertheless form part of that content.</p>
 
-  <h2>3. How We Use Information</h2>
-  <p>The information stored is used solely for the following purposes:</p>
+  <h2>3. Apple Music and ShazamKit</h2>
+  <h3>Apple Music and the Media Library</h3>
+  <p>MusicKit and media-library features provide song search, charts, playlists, in-app playback, and song and artist artwork. Apple services process search terms, song/artist identifiers and requests needed for playback. The App also contacts artwork delivery services. Displaying artwork for a saved song may involve looking up that song or artist.</p>
+  <p>Charts use the country/region code in your device's region settings, not GPS location. Apple handles information such as the IP address used for a connection and service activity under its own policies. See <a href="https://www.apple.com/legal/privacy/data/en/apple-music/" target="_blank" rel="noopener noreferrer">Apple Music &amp; Privacy</a> and <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.</p>
+  <h3>Music Recognition (ShazamKit)</h3>
+  <p>When you start music recognition and grant microphone access, acoustic features (audio signatures) generated from surrounding sound are sent to Apple's Shazam service for matching. Apple explains that ShazamKit does not share the original audio with Apple and that the signatures cannot be converted back into the original audio (see <a href="https://developer.apple.com/shazamkit/" target="_blank" rel="noopener noreferrer">ShazamKit</a>).</p>
+  <p>The App does not save recognition audio as an audio attachment to your score record or send it to a Developer-operated server. Recognized titles, artists and artwork are used to fill in song details. Audio you choose to save using the separate recording feature is handled as an on-device attachment.</p>
+
+  <h2>4. Permissions</h2>
   <ul>
-    <li>Displaying, managing, and searching score records</li>
-    <li>Generating score trend charts</li>
-    <li>Creating backup files at the user's request</li>
+    <li><strong>Microphone:</strong> Music recognition or recording an audio attachment, initiated by you.</li>
+    <li><strong>Photos and videos:</strong> Importing items you select with the system photo picker to attach to a record.</li>
+    <li><strong>Apple Music and media library:</strong> Search, charts, artwork, and viewing and playing playlists on your device.</li>
   </ul>
+  <p>Declining required access may make the corresponding feature unavailable. You can change granted access in device Settings. The system photo picker provides access to the items you select.</p>
 
-  <h2>4. Information Sharing</h2>
-  <p>The Developer does not sell, share, or rent your information to any third party.</p>
+  <h2>5. Storage, iCloud and Backups</h2>
+  <p>Records and attachments are stored in the App's on-device storage. Images and similar content may be cached for display. The current implementation does not provide automatic record synchronization through the App's own iCloud/CloudKit integration. The “Save to iCloud” setting alone does not synchronize records between devices.</p>
+  <p>Separately, depending on your operating system's backup settings, app data may be included in iCloud Backup or another system backup. Apple and your device settings govern that handling.</p>
+  <p>If you export a backup, the App creates a JSON file containing song, score and folder information. You choose its storage or sharing destination. The JSON does not include the actual attached photos, videos or audio files. Copies shared elsewhere are subject to the recipient's or destination service's information handling.</p>
 
-  <h2>5. Data Storage</h2>
-  <p>
-    All data is stored locally on your device. If you enable iCloud sync, data is stored in your personal iCloud account.
-    No data is ever sent to the Developer's servers.
-  </p>
+  <h2>6. Widgets</h2>
+  <p>For Home and Lock Screen widgets, the App writes a subset of information, such as titles, artists, scores, performance dates, singing counts, summaries and small artwork images, to on-device storage shared with its widget extension. This is not an upload to the Developer's server.</p>
+  <p>Depending on widget placement and operating-system privacy settings, this information may be visible to people who can view or use your device. Widget refreshes, including changes after editing or deleting records, also depend on the operating system.</p>
 
-  <h2>6. Permissions</h2>
-  <p>The App may request the following permissions:</p>
-  <ul>
-    <li><strong>Microphone:</strong> To record audio and attach it to score records</li>
-    <li><strong>Photo Library:</strong> To attach photos and videos to score records</li>
-    <li><strong>Apple Music (MusicKit):</strong> To search for songs and retrieve artwork</li>
-  </ul>
-  <p>Each permission is used only when you actively use the relevant feature. You can revoke any permission at any time in your device Settings.</p>
-
-  <h2>7. Third-Party Services</h2>
-  <p>
-    The App uses MusicKit (Apple Music), provided by Apple Inc., for song search and artwork retrieval.
-    Use of Apple Music and iCloud is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.
-  </p>
+  <h2>7. External Transfers, Advertising and Analytics</h2>
+  <p>The App does not integrate a Developer-operated server for automatically collecting score records or attachments, an advertising SDK, or a third-party behavioral tracking/analytics SDK. It has no mechanism for selling or renting user information for advertising.</p>
+  <p>Communication with Apple services, backup sharing that you choose, and support-form submissions still take place as described above. This policy does not claim that providers such as Apple, Google or GitHub collect no information when you use their services.</p>
 
   <h2>8. In-App Purchases</h2>
-  <p>
-    The KaraLog Pro plan is available for purchase through the App Store. All payment processing is handled by Apple.
-    The Developer never receives your credit card or payment information.
-  </p>
+  <p>KaraLog Pro is a one-time purchase through the App Store. StoreKit retrieves product information and checks purchase entitlements during purchase and restoration. Apple processes payments; the Developer does not receive credit card numbers or similar payment details. Apple's terms and privacy policies govern purchase information that Apple handles.</p>
 
-  <h2>9. Data Deletion</h2>
-  <p>
-    Uninstalling the App will delete all locally stored data from your device.
-    If iCloud sync is enabled, you can also remove the data from iCloud via your device's iCloud settings.
-  </p>
+  <h2>9. Retention and Deletion</h2>
+  <p>Records and attachments remain on your device until you edit or delete them. Shared widget data is updated as app records change, but the operating system may not immediately refresh a cached widget display.</p>
+  <p>Deleting the App from a device normally removes its local app data. System backups, exported JSON files and copies saved at sharing destinations are not automatically deleted; manage them at each location. The Developer has no mechanism for remotely viewing, recovering or deleting records on your device.</p>
 
-  <h2>10. Changes to This Policy</h2>
-  <p>
-    We may update this Privacy Policy from time to time. Changes will be reflected on this page.
-    Significant changes may be communicated through an App Store update notice.
-  </p>
+  <h2>10. This Website and Support Services</h2>
+  <p>This page is hosted on GitHub Pages. GitHub may process access information such as your IP address when you visit (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>). No custom advertising or analytics tool is installed on this page.</p>
+  <p>Support uses Google Forms. The Developer receives what you submit and any contact information collected according to the form's settings, and uses it to respond to your inquiry. Google's processing is also subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>. Do not submit passwords, payment details or unnecessary personal information.</p>
 
-  <h2>11. Contact</h2>
-  <p>If you have any questions about this Privacy Policy, please reach out via the App Store review page.</p>
+  <h2>11. Policy Changes</h2>
+  <p>Changes to this policy will update the contents and revision date on this page. Material changes in information handling will also be announced through the App, App Store update information or similar channels, with consent requested where legally required.</p>
 
+  <h2>12. Contact</h2>
+  <p>For questions about this policy or requests to review or delete support information received by the Developer, contact Yuta Nishimatsu using the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOJhdf4_zJH2OATGepn1_tuxIS3W6LNo6gTasQ96ljbJTIbQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">support form</a>.</p>
   <footer>© 2026 Yuta Nishimatsu. All rights reserved.</footer>
-</div>
+</section>
+</main>
 
 <script>
-  function switchLang(lang) {
-    document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById(lang).classList.add('active');
-    event.target.classList.add('active');
-    document.documentElement.lang = lang;
+  function switchLang(language) {
+    if (language !== 'ja' && language !== 'en') return;
+    document.querySelectorAll('.content').forEach(section => {
+      section.hidden = section.id !== language;
+    });
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.language === language));
+    });
+    document.documentElement.lang = language;
   }
+
+  document.querySelector('.lang-toggle').addEventListener('click', event => {
+    const button = event.target.closest('button[data-language]');
+    if (button) switchLang(button.dataset.language);
+  });
 </script>
 </body>
 </html>
