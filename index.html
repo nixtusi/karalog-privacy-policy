@@ -107,7 +107,7 @@
   <h2>1. はじめに</h2>
   <p>カラログ（以下「本アプリ」）は、Yuta Nishimatsu（以下「開発者」）が提供するカラオケ採点記録アプリです。本ポリシーは、本アプリとこのページにおける情報の取り扱いを説明します。</p>
   <div class="highlight-box">
-    <p><strong>要点：</strong>採点記録や添付ファイルは主に端末内に保存され、開発者が運営するサーバーへ自動送信する仕組みはありません。一方、楽曲検索・再生・楽曲認識などではAppleのサービスと通信します。利用者によるバックアップ共有やお問い合わせの送信は、別途以下のとおり取り扱われます。</p>
+    <p><strong>要点：</strong>採点記録や添付ファイルは端末内に保存されます。iCloud同期対応版で利用者が同期を有効にした場合は、Appleが提供する本人のiCloudにも保存・同期されます。開発者が運営するサーバーへ記録を自動送信する仕組みはありません。楽曲検索・再生・楽曲認識などのAppleサービスとの通信、バックアップの共有、お問い合わせについては、以下をご確認ください。</p>
   </div>
 
   <h2>2. 端末内で扱う情報と利用目的</h2>
@@ -136,7 +136,9 @@
   <p>必要な権限を許可しない場合、該当する機能が利用できないことがあります。許可済みのアクセスは端末の設定で変更できます。写真ピッカーは、選択した項目へのアクセスを提供する仕組みです。</p>
 
   <h2>5. 保存場所・iCloud・バックアップ</h2>
-  <p>記録や添付ファイルは、端末内の本アプリ用の保存領域に保存します。画像などは表示のために一時保存される場合があります。現在の実装には、本アプリ独自のiCloud／CloudKitによる記録の自動同期はありません。設定にある「iCloudに保存」の項目だけで、デバイス間の同期が行われるものではありません。</p>
+  <p>記録や添付ファイルは、端末内の本アプリ用の保存領域に保存します。画像などは表示のために一時保存される場合があります。iCloud同期対応版では、利用者が設定の「iCloudに保存」を有効にすると、曲名・アーティスト名・楽曲識別子・画像情報・お気に入り・曲メモ・フォルダ・採点内容・歌った日・採点メモと、添付した写真・動画・録音を、現在のApple AccountのCloudKitプライベートデータベースに送信し、同じアカウントで同期を有効にした端末間で同期します。外観など端末ごとの設定や、使い方案内・レビュー依頼の状態はこの同期の対象ではありません。同期に未対応の旧バージョンでは、設定項目があっても記録の同期は行われません。</p>
+  <p>CloudKitのプライベートデータベースは利用者のiCloudストレージを使用し、その内容を開発者が管理画面で閲覧することはできません（<a href="https://developer.apple.com/documentation/cloudkit/ckcontainer/privateclouddatabase" target="_blank" rel="noopener noreferrer">Appleの説明</a>）。通信・保存はAppleのサービスとプライバシーポリシーに従います。同期状態と再試行のため、アプリはアカウント識別子をハッシュ化した値や、同期済みデータ・未送信の変更などの同期管理情報を端末内に保持します。</p>
+  <p>同期は初期状態ではオフです。オフにしても端末内やiCloud上の記録は削除しません。Apple Accountの変更を検出すると同期を停止し、利用者が確認して再び有効にするまで別のアカウントへ自動同期しません。同期の完了時期は通信状況、iCloudの空き容量、OSの動作などに依存します。別端末で同じ項目を変更した場合は更新日時などで変更を選択し、削除済みの項目は古い端末の変更によって復活させないよう処理します。</p>
   <p>これとは別に、OSのバックアップ設定によってはアプリのデータがiCloudバックアップ等に含まれる場合があります。その取り扱いはAppleと利用者の端末設定に依存します。</p>
   <p>利用者がバックアップを書き出した場合、曲・採点・フォルダなどの情報を含むJSONファイルが作成され、共有先・保存先は利用者が選びます。添付した写真・動画・録音などのメディア本体は、このJSONに含まれません。共有先では、そのサービスや相手側の情報の取り扱いが適用されます。</p>
 
@@ -153,7 +155,8 @@
 
   <h2>9. 保存期間と削除</h2>
   <p>記録や添付ファイルは、利用者が記録の編集・削除などを行うまで端末内に保持されます。ウィジェット用データはアプリの記録の変更に応じて更新しますが、OSに保存された表示が直ちに更新されない場合があります。</p>
-  <p>アプリを端末から削除すると、通常、その端末内のアプリデータも削除されます。ただし、OSのバックアップ、書き出したJSON、共有先に保存したコピーなどは自動削除されません。これらはそれぞれの保存先で管理してください。開発者は、端末内の記録を遠隔で閲覧・復旧・削除する仕組みを持ちません。</p>
+  <p>同期が有効な状態で記録や添付を削除・変更した場合、その変更もiCloudと他の同期端末へ反映します。オフラインの端末から古い記録が復活することを防ぐため、削除済み項目の識別子・削除日時などの管理情報を保持します。この削除管理情報に、削除した曲名・点数・メモ・写真・動画・録音の内容は含めません。</p>
+  <p>アプリを端末から削除しても、iCloud上の記録、OSのバックアップ、書き出したJSON、共有先のコピーは自動削除されません。iCloud上のアプリデータはAppleのiCloudストレージ管理機能で管理・削除してください。端末内に記録を残したままiCloud上のデータを削除した後、再び同期を有効にすると、端末内の記録が再送信されることがあります。開発者は、利用者の端末内やCloudKitプライベートデータベースの記録を遠隔で閲覧・復旧・削除する仕組みを持ちません。</p>
 
   <h2>10. このWebページとお問い合わせ</h2>
   <p>このページはGitHub Pagesで公開しています。閲覧時にGitHub側でIPアドレスなどのアクセス情報が処理される場合があります（<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHubのプライバシーステートメント</a>）。このページに独自の広告・アクセス解析ツールは設置していません。</p>
@@ -173,7 +176,7 @@
   <h2>1. Introduction</h2>
   <p>KaraLog (the “App”) is a karaoke score-tracking app provided by Yuta Nishimatsu (the “Developer”). This policy explains information handling in the App and on this page.</p>
   <div class="highlight-box">
-    <p><strong>Summary:</strong> Score records and attachments are primarily stored on your device. The App has no mechanism that automatically uploads them to a server operated by the Developer. Song search, playback and recognition do communicate with Apple services. Backup sharing and support submissions initiated by you are handled separately as described below.</p>
+    <p><strong>Summary:</strong> Score records and attachments are stored on your device. In versions that support iCloud sync, enabling it also saves and synchronizes them in your own iCloud account, provided by Apple. The App does not automatically upload records to a Developer-operated server. Communication with Apple music services, backup sharing and support submissions are described below.</p>
   </div>
 
   <h2>2. On-Device Information and Its Purposes</h2>
@@ -202,7 +205,9 @@
   <p>Declining required access may make the corresponding feature unavailable. You can change granted access in device Settings. The system photo picker provides access to the items you select.</p>
 
   <h2>5. Storage, iCloud and Backups</h2>
-  <p>Records and attachments are stored in the App's on-device storage. Images and similar content may be cached for display. The current implementation does not provide automatic record synchronization through the App's own iCloud/CloudKit integration. The “Save to iCloud” setting alone does not synchronize records between devices.</p>
+  <p>Records and attachments are stored in the App's on-device storage. Images and similar content may be cached for display. In versions that support iCloud sync, enabling “Save to iCloud” sends song titles, artists, music identifiers, artwork information, favorites, song notes, folders, scores, performance dates, score notes and attached photos, videos and audio recordings to the CloudKit private database of your current Apple Account. They sync between devices using that account with sync enabled. Device preferences such as appearance, guide status and review-prompt status are not part of this sync. Older versions without sync support do not sync records even if they show a similarly named setting.</p>
+  <p>The CloudKit private database uses your iCloud storage. The Developer cannot view its contents in the developer portal (see <a href="https://developer.apple.com/documentation/cloudkit/ckcontainer/privateclouddatabase" target="_blank" rel="noopener noreferrer">Apple's documentation</a>). Apple's services and privacy policies govern communication and storage. To manage sync and retries, the App keeps a hashed account identifier, synchronized data, pending changes and other sync state on your device.</p>
+  <p>Sync is off by default. Turning it off does not delete records on your device or in iCloud. When an Apple Account change is detected, the App stops sync and does not automatically sync to another account until you check and enable it again. Sync timing depends on connectivity, available iCloud storage and operating-system behavior. Concurrent edits are resolved using modification times and other tie-breaking rules; older offline changes do not restore deleted items.</p>
   <p>Separately, depending on your operating system's backup settings, app data may be included in iCloud Backup or another system backup. Apple and your device settings govern that handling.</p>
   <p>If you export a backup, the App creates a JSON file containing song, score and folder information. You choose its storage or sharing destination. The JSON does not include the actual attached photos, videos or audio files. Copies shared elsewhere are subject to the recipient's or destination service's information handling.</p>
 
@@ -219,7 +224,8 @@
 
   <h2>9. Retention and Deletion</h2>
   <p>Records and attachments remain on your device until you edit or delete them. Shared widget data is updated as app records change, but the operating system may not immediately refresh a cached widget display.</p>
-  <p>Deleting the App from a device normally removes its local app data. System backups, exported JSON files and copies saved at sharing destinations are not automatically deleted; manage them at each location. The Developer has no mechanism for remotely viewing, recovering or deleting records on your device.</p>
+  <p>Edits and deletions made with sync enabled also propagate to iCloud and other syncing devices. The App retains identifiers, deletion dates and similar bookkeeping for deleted items to prevent older offline records from reappearing. These deletion markers do not retain deleted titles, scores, notes or photo, video and audio content.</p>
+  <p>Deleting the App does not automatically delete iCloud records, system backups, exported JSON files or shared copies. Manage or delete iCloud app data using Apple's iCloud storage management. If records remain on a device after you delete its iCloud data, enabling sync again may upload those local records again. The Developer has no mechanism for remotely viewing, recovering or deleting records in your device storage or CloudKit private database.</p>
 
   <h2>10. This Website and Support Services</h2>
   <p>This page is hosted on GitHub Pages. GitHub may process access information such as your IP address when you visit (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>). No custom advertising or analytics tool is installed on this page.</p>
